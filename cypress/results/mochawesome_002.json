@@ -1,0 +1,155 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2025-01-30T12:35:31.263Z",
+    "end": "2025-01-30T12:35:32.056Z",
+    "duration": 793,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1543f27c-8b15-4322-b2b3-a1187949f7e2",
+      "title": "",
+      "fullFile": "cypress\\component\\Quiz.cy.jsx",
+      "file": "cypress\\component\\Quiz.cy.jsx",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1d1af6e7-aea1-4097-8db6-7e8546109b3f",
+          "title": "Quiz Component",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should start the quiz and display the first question",
+              "fullTitle": "Quiz Component should start the quiz and display the first question",
+              "timedOut": null,
+              "duration": 253,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.mount( /*#__PURE__*/_react.default.createElement(_Quiz.default, null));\ncy.get('button').contains('Start Quiz').click();\ncy.get('.card').should('be.visible');\ncy.get('h2').should('not.be.empty');",
+              "err": {
+                "message": "CypressError: `cy.mount()` must be implemented by the user. There are\nfull instructions for doing so at the following location.\n\nhttps://on.cypress.io/mount",
+                "estack": "CypressError: `cy.mount()` must be implemented by the user. There are\nfull instructions for doing so at the following location.\n\nhttps://on.cypress.io/mount\n    at Context.mount (http://localhost:3000/__cypress/runner/cypress_runner.js:118340:75)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:138084:43)\nFrom Your Spec Code:\n    at Context.eval (webpack://coding-quiz/./cypress/component/Quiz.cy.jsx:19:7)",
+                "diff": null
+              },
+              "uuid": "e55f3e07-3e7e-4532-bfe8-1ae1cb2adf61",
+              "parentUUID": "1d1af6e7-aea1-4097-8db6-7e8546109b3f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should answer questions and complete the quiz",
+              "fullTitle": "Quiz Component should answer questions and complete the quiz",
+              "timedOut": null,
+              "duration": 278,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.mount( /*#__PURE__*/_react.default.createElement(_Quiz.default, null));\ncy.get('button').contains('Start Quiz').click();\n// Answer questions\ncy.get('button').contains('1').click();\n// Verify the quiz completion\ncy.get('.alert-success').should('be.visible').and('contain', 'Your score');",
+              "err": {
+                "message": "CypressError: `cy.mount()` must be implemented by the user. There are\nfull instructions for doing so at the following location.\n\nhttps://on.cypress.io/mount",
+                "estack": "CypressError: `cy.mount()` must be implemented by the user. There are\nfull instructions for doing so at the following location.\n\nhttps://on.cypress.io/mount\n    at Context.mount (http://localhost:3000/__cypress/runner/cypress_runner.js:118340:75)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:138084:43)\nFrom Your Spec Code:\n    at Context.eval (webpack://coding-quiz/./cypress/component/Quiz.cy.jsx:26:7)",
+                "diff": null
+              },
+              "uuid": "93f58b15-1d7f-46fd-bf5e-6912e702745d",
+              "parentUUID": "1d1af6e7-aea1-4097-8db6-7e8546109b3f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should restart the quiz after completion",
+              "fullTitle": "Quiz Component should restart the quiz after completion",
+              "timedOut": null,
+              "duration": 172,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.mount( /*#__PURE__*/_react.default.createElement(_Quiz.default, null));\ncy.get('button').contains('Start Quiz').click();\n// Answer questions\ncy.get('button').contains('1').click();\n// Restart the quiz\ncy.get('button').contains('Take New Quiz').click();\n// Verify the quiz is restarted\ncy.get('.card').should('be.visible');\ncy.get('h2').should('not.be.empty');",
+              "err": {
+                "message": "CypressError: `cy.mount()` must be implemented by the user. There are\nfull instructions for doing so at the following location.\n\nhttps://on.cypress.io/mount",
+                "estack": "CypressError: `cy.mount()` must be implemented by the user. There are\nfull instructions for doing so at the following location.\n\nhttps://on.cypress.io/mount\n    at Context.mount (http://localhost:3000/__cypress/runner/cypress_runner.js:118340:75)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:138084:43)\nFrom Your Spec Code:\n    at Context.eval (webpack://coding-quiz/./cypress/component/Quiz.cy.jsx:37:7)",
+                "diff": null
+              },
+              "uuid": "25726c98-062c-45aa-bd05-408f1870a9e4",
+              "parentUUID": "1d1af6e7-aea1-4097-8db6-7e8546109b3f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "e55f3e07-3e7e-4532-bfe8-1ae1cb2adf61",
+            "93f58b15-1d7f-46fd-bf5e-6912e702745d",
+            "25726c98-062c-45aa-bd05-408f1870a9e4"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 703,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

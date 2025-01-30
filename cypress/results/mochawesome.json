@@ -1,0 +1,155 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2025-01-30T12:21:05.331Z",
+    "end": "2025-01-30T12:21:06.300Z",
+    "duration": 969,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b640e0ba-3b7a-4a65-a785-0c2e5f2858d6",
+      "title": "",
+      "fullFile": "cypress\\component\\Quiz.cy.jsx",
+      "file": "cypress\\component\\Quiz.cy.jsx",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0c33bace-6e94-47b6-ac48-4dcc758cc396",
+          "title": "Quiz Component",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should start the quiz and display the first question",
+              "fullTitle": "Quiz Component should start the quiz and display the first question",
+              "timedOut": null,
+              "duration": 376,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.mount( /*#__PURE__*/React.createElement(_Quiz.default, null));\ncy.get('button').contains('Start Quiz').click();\ncy.get('.card').should('be.visible');\ncy.get('h2').should('not.be.empty');",
+              "err": {
+                "message": "ReferenceError: React is not defined",
+                "estack": "ReferenceError: React is not defined\n    at Context.eval (webpack://coding-quiz/./cypress/component/Quiz.cy.jsx:18:13)",
+                "diff": null
+              },
+              "uuid": "cb670a3f-9396-4463-93db-98081d123907",
+              "parentUUID": "0c33bace-6e94-47b6-ac48-4dcc758cc396",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should answer questions and complete the quiz",
+              "fullTitle": "Quiz Component should answer questions and complete the quiz",
+              "timedOut": null,
+              "duration": 270,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.mount( /*#__PURE__*/React.createElement(_Quiz.default, null));\ncy.get('button').contains('Start Quiz').click();\n// Answer questions\ncy.get('button').contains('1').click();\n// Verify the quiz completion\ncy.get('.alert-success').should('be.visible').and('contain', 'Your score');",
+              "err": {
+                "message": "ReferenceError: React is not defined",
+                "estack": "ReferenceError: React is not defined\n    at Context.eval (webpack://coding-quiz/./cypress/component/Quiz.cy.jsx:25:13)",
+                "diff": null
+              },
+              "uuid": "316b0e67-7cf5-43ce-a6a5-6ea89567f3d9",
+              "parentUUID": "0c33bace-6e94-47b6-ac48-4dcc758cc396",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should restart the quiz after completion",
+              "fullTitle": "Quiz Component should restart the quiz after completion",
+              "timedOut": null,
+              "duration": 205,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.mount( /*#__PURE__*/React.createElement(_Quiz.default, null));\ncy.get('button').contains('Start Quiz').click();\n// Answer questions\ncy.get('button').contains('1').click();\n// Restart the quiz\ncy.get('button').contains('Take New Quiz').click();\n// Verify the quiz is restarted\ncy.get('.card').should('be.visible');\ncy.get('h2').should('not.be.empty');",
+              "err": {
+                "message": "ReferenceError: React is not defined",
+                "estack": "ReferenceError: React is not defined\n    at Context.eval (webpack://coding-quiz/./cypress/component/Quiz.cy.jsx:36:13)",
+                "diff": null
+              },
+              "uuid": "a77a73db-c87b-4d83-bf63-c1ca4d898345",
+              "parentUUID": "0c33bace-6e94-47b6-ac48-4dcc758cc396",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "cb670a3f-9396-4463-93db-98081d123907",
+            "316b0e67-7cf5-43ce-a6a5-6ea89567f3d9",
+            "a77a73db-c87b-4d83-bf63-c1ca4d898345"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 851,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
