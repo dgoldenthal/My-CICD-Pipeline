@@ -1,35 +1,44 @@
-name: Run Cypress Tests
+name: Cypress Tests
 
 on:
   pull_request:
-    branches:
-      - develop
+    branches: [develop]
 
 jobs:
-  cypress-tests:
+  cypress-run:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
 
-    - name: Install dependencies
-      run: |
-        npm install
-        cd client && npm install
-        cd ../server && npm install
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Run Cypress tests
-      run: |
-        cd client && npm run test:cypress
+      - name: Start Backend Server
+        run: |
+          cd server
+          npm install
+          npm start &
+          sleep 10
 
-    - name: Upload Cypress results
-      uses: actions/upload-artifact@v3
-      with:
-        name: cypress-results
-        path: client/cypress/results/
+      - name: Start Frontend Server
+        run: |
+          cd client
+          npm install
+          npm start &
+          sleep 10
+
+      - name: Run Cypress Tests
+        run: npx cypress run --component
+
+      - name: Upload Cypress Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-results
+          path: cypress/results/
