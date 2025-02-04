@@ -17,6 +17,6 @@ jobs:
 
       - name: Trigger Frontend Deployment on Render
         run: |
-          curl -X POST "${{ secrets.RENDER_FRONTEND_HOOK_URL }"
+          curl -X POST "${{ secrets.RENDER_FRONTEND_HOOK_URL }}"
         env:
           RENDER_FRONTEND_HOOK_URL: ${{ secrets.RENDER_FRONTEND_HOOK_URL }}
