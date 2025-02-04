@@ -11,12 +11,12 @@ jobs:
     steps:
       - name: Trigger Backend Deployment on Render
         run: |
-          curl -X POST "$RENDER_BACKEND_HOOK_URL"
+          curl -X POST "${{ secrets.RENDER_BACKEND_HOOK_URL }}"
         env:
           RENDER_BACKEND_HOOK_URL: ${{ secrets.RENDER_BACKEND_HOOK_URL }}
 
       - name: Trigger Frontend Deployment on Render
         run: |
-          curl -X POST "$RENDER_FRONTEND_HOOK_URL"
+          curl -X POST "${{ secrets.RENDER_FRONTEND_HOOK_URL }"
         env:
           RENDER_FRONTEND_HOOK_URL: ${{ secrets.RENDER_FRONTEND_HOOK_URL }}
