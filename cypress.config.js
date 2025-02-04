@@ -7,6 +7,7 @@ module.exports = defineConfig({
     devServer: {
       framework: 'react',
       bundler: 'vite',
+      viteConfig
     },
     supportFile: 'cypress/support/component.js', // Ensures Cypress finds support files
   },
