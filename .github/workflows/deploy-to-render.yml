@@ -1,26 +1,29 @@
 name: Deploy to Render
+env:
+  deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
 
+# Run Deployment post closing
 on:
-  push:
-    branches: [main]
+  pull_request:
+    types: closed
+    branches:
+      - main # Run deploy after pushed to main
 
 jobs:
-  deploy:
+  render-deploy:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
     steps:
-      - name: Trigger Backend Deployment on Render
-        run: |
-          if [ -z "${{ secrets.RENDER_BACKEND_HOOK_URL }}" ]; then
-            echo "ERROR: RENDER_BACKEND_HOOK_URL is not set"
-            exit 1
-          fi
-          curl -X POST "${{ secrets.RENDER_BACKEND_HOOK_URL }}"
-
-      - name: Trigger Frontend Deployment on Render
-        run: |
-          if [ -z "${{ secrets.RENDER_FRONTEND_HOOK_URL }}" ]; then
-            echo "ERROR: RENDER_FRONTEND_HOOK_URL is not set"
-            exit 1
-          fi
-          curl -X POST "${{ secrets.RENDER_FRONTEND_HOOK_URL }}"
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: CI and CD using Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: install dependencies
+        run: npm ci
+      - name: Render Deploy Action
+        run: curl "$deploy_url"
