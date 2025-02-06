@@ -8,7 +8,6 @@ on:
     types: closed
     branches:
       - main # Run deploy after pushed to main
-
 jobs:
   render-deploy:
     runs-on: ubuntu-latest
